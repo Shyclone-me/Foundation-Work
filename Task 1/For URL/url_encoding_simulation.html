@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoUrSe WoRk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fafafa;
+        }
+        .unsafe {
+            border-left: 5px solid red;
+        }
+        .safe {
+            border-left: 5px solid green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Comment Submission</h2>
+    <p>Enter a comment below (simulates a real web application):</p>
+
+    <textarea id="userInput" placeholder="Type your comment here..."></textarea>
+
+    <br>
+    <button onclick="submitUnsafe()">Submit (Unsafe)</button>
+    <button onclick="submitSafe()">Submit (Safe / URL Encoded)</button>
+
+    <div id="unsafeOutput" class="output unsafe">
+        <strong>Unsafe Output:</strong>
+        <div id="unsafeResult"></div>
+    </div>
+
+    <div id="safeOutput" class="output safe">
+        <strong>Safe Output:</strong>
+        <div id="safeResult"></div>
+    </div>
+</div>
+<p> This website is for demonstration of url encoding <br> This web is created especially for foundation coursework <br> ©250546
+</p>
+<script>
+function submitUnsafe() {
+    const input = document.getElementById("userInput").value;
+    document.getElementById("unsafeResult").innerHTML = input;
+}
+
+function submitSafe() {
+    const input = document.getElementById("userInput").value;
+    const encoded = encodeURIComponent(input);
+    const decoded = decodeURIComponent(encoded);
+
+    document.getElementById("safeResult").innerText = decoded;
+}
+</script>
+
+</body>
+</html>
