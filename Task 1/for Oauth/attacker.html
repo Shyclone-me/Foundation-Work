@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attacker Token Decoder</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #111;
+            color: #0f0;
+            padding: 40px;
+        }
+        textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>💀 Attacker JWT Decoder</h2>
+
+<p>Paste stolen token:</p>
+<textarea id="token"></textarea>
+
+<button onclick="decode()">Decode Token</button>
+
+<h3>Decoded Payload:</h3>
+<textarea id="output"></textarea>
+
+<script>
+function decode() {
+    const token = document.getElementById("token").value;
+    const payload = token.split(".")[1];
+
+    const decoded = atob(payload);
+    document.getElementById("output").value = decoded;
+}
+</script>
+
+</body>
+</html>

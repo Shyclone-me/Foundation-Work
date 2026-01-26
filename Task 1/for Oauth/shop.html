@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiniShop | Store</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🛍️ Welcome to MiniShop</h2>
+    <p>You are logged in and browsing products.</p>
+</div>
+
+<script>
+const token = localStorage.getItem("auth_token");
+
+if (!token) {
+    alert("Unauthorized access!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

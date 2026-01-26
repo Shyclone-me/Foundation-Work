@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiniShop | Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f5;
+            padding: 50px;
+        }
+        .box {
+            width: 360px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>🛒 MiniShop Login</h2>
+
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="password" type="password" placeholder="Password" required>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+function login() {
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Please enter email and password");
+        return;
+    }
+
+    // JWT payload (minimal but still sensitive)
+    const payload = {
+        email: email,
+        role: "customer",
+        iat: Math.floor(Date.now() / 1000)
+    };
+
+    // Base64 encoding (NOT encryption)
+    const encodedPayload = btoa(JSON.stringify(payload));
+
+    // Fake JWT
+    const jwt = "header." + encodedPayload + ".signature";
+
+    // Store token (real-world behaviour)
+    localStorage.setItem("auth_token", jwt);
+
+    // Redirect to shop
+    window.location.href = "shop.html";
+}
+</script>
+
+</body>
+</html>
