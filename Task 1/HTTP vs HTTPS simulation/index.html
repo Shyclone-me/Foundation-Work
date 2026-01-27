@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Upload</title>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+<p> This web is for demonstration purpose <br> ©shyclone </p>
+<input type="file" id="imageInput">
+<button onclick="sendImage()">Save Image</button>
+
+<script>
+function sendImage() {
+  const file = document.getElementById('imageInput').files[0];
+  const reader = new FileReader();
+
+  reader.onload = function() {
+    const base64Data = reader.result.split(',')[1];
+    console.log("Base64 Image Data:", base64Data);
+
+    fetch('/upload', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ image: base64Data })
+    });
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
