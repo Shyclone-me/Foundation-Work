@@ -2,6 +2,8 @@
 
 This task covers various encoding techniques and demonstrates why **encoding is NOT security**.
 
+Detail documentation is available in pdf [detail documentation of task 1](/Task%201/Task%201%20documentation.pdf)
+
 ## Overview
 
 Task 1 explores different types of encoding used in computer systems and highlights the critical difference between encoding and encryption. Through practical simulations, this task covers why Base64, URL encoding, and similar techniques should never be used as security mechanisms.
