@@ -85,6 +85,10 @@ python -m http.server 8000
 ![Oauth GUI Second Interface](/Task%201/Screenshots/oauthsecond.png)
 
 
+## attacker page look like 
+
+![Oauth GUI Main Interface](/Task%201/Screenshots/attacker.png)
+attacker can decript the JWT token
 
 ## Navigation
 
