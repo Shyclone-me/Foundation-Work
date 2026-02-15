@@ -57,9 +57,7 @@ Task 1/For URL/url_encoding_simulation.html
 1. Enter any text in the input field
 2. Click "Submit (Unsafe)" - see how HTML/script tags execute
 3. Click "Submit (Safe)" - see how the same content is safely displayed
-4. Try entering: ```html 
-<img scr=x onerror=alert('XSS')>
-```
+4. Try entering: <img scr=x onerror=alert('XSS')>
 
 ![URL GUI Main Interface](/Task%201/Screenshots/url%20result.png)
 
