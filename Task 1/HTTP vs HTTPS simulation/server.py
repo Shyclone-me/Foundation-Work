@@ -1,6 +1,12 @@
 from flask import Flask, request, send_file
 import base64
 
+server = input("""
+               Select server:
+               [1] HTTP
+               [2] HTTTPS 
+               Enter choice:                 
+               """)
 app = Flask(__name__)
 
 @app.route('/')
@@ -18,9 +24,14 @@ def upload():
     print("[SERVER] Image saved successfully")
     return 'OK'
 
-# app.run(host='127.0.0.1', port=5000) # for http
-app.run(
+
+if server == '1':
+    app.run(host='127.0.0.1', port=5000)
+elif server == '2':
+    app.run(
     host='127.0.0.1',
     port=5000,
     ssl_context="adhoc"
-) # for https
+) 
+else:
+    print("Rerun the server with appropriate choice")
